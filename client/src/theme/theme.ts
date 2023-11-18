@@ -14,9 +14,6 @@ export const theme = createTheme({
   },
   spacing: (factor: number) => `${4 * factor}px`,
   typography: {
-    button: {
-      textTransform: "none"
-    },
     ...typography
   },
   palette
