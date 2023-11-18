@@ -4,28 +4,28 @@
     "title": "The Power of Habit",
     "price": 10,
     "imageUrl": "https://libris.to/media/jacket/09188414_power-of-habit.jpg",
-    "isFavorite": true
+    "isFavorite": false
   },
   {
     "id": "fab81b55-6b28-4085-909a-b0163a2a5bb1",
     "title": "Mindset",
     "price": 20,
     "imageUrl": "https://cdn.dc5.ro/img-prod/1977077-0.jpeg",
-    "isFavorite": false
+    "isFavorite": true
   },
   {
     "id": "54fc3f8f-5a8a-42f8-9105-cfd80a22324b",
     "title": "The 80/20 Principle",
     "price": 15,
     "imageUrl": "https://libris.to/media/jacket/38426517o.jpg",
-    "isFavorite": false
+    "isFavorite": true
   },
   {
     "id": "5ff295cc-e79d-4931-9584-e2e49101d6df",
     "price": 15,
     "title": "Men relaxed T Shirt",
     "imageUrl": "https://i.factcool.com/catalog/products/6/f2/ca6-f2-ca4a979520221014070308_8682582967425_1.jpg",
-    "isFavorite": true
+    "isFavorite": false
   },
   {
     "id": "462270a5-5d1f-4347-b53f-c567739ecaf5",

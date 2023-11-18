@@ -8,8 +8,12 @@
     "page_not_found": "Page not found!"
   },
   "articles": {
+    "add_to_cart": "Add to cart",
     "title": "home",
-    "add_to_cart": "Add to cart"
+    "updated_successfully": "Item updated updated successfully!"
+  },
+  "article_details": {
+    "message": "This is the details page for article: {title}"
   },
   "contact": {
     "title": "Contact"

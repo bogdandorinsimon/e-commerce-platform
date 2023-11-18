@@ -10,7 +10,7 @@ export const useArticleById = (id: string) => {
     isLoading,
     isError,
     error
-  } = useQuery<Article[], AxiosError>(ARTICLE_KEYS.article(id), () =>
+  } = useQuery<Article, AxiosError>(ARTICLE_KEYS.article(id), () =>
     getArticleById(id)
   );
 

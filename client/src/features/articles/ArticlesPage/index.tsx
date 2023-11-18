@@ -1,25 +1,29 @@
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useShoppingCart } from "context/ShoppingCartProvider/useShoppingCart";
 import { ROUTER_PATH } from "helpers/constants";
 import { PageWrapper } from "layout/PageWrapper";
 import { ArticleCard } from "../components/ArticleCard";
 import { Article } from "../models";
+import { useUpdateArticle } from "../mutations/useUpdateArticle";
 import { useArticles } from "../queries/useArticles";
 
 const ArticlesPage = () => {
   const navigate = useNavigate();
   const { articles, isLoading, isError, error } = useArticles();
+  const { increaseItemQuantity } = useShoppingCart();
+  const { updateArticle } = useUpdateArticle();
 
   const handleArticleClick = (article: Article) => {
     navigate(ROUTER_PATH.ARTICLE_DETAILS.replace(":articleId", article.id));
   };
 
   const handleAddToCart = (article: Article) => {
-    console.log("Added to cart: ", article);
+    increaseItemQuantity(article.id);
   };
 
   const handleFavoriteClick = (article: Article) => {
-    console.log("Favorite clicked: ", article);
+    updateArticle({ ...article, isFavorite: !article.isFavorite });
   };
 
   return (

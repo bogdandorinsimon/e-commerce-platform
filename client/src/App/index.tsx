@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter } from "react-router-dom";
 import { ConfirmationDialogProvider } from "context/ConfirmationDialogProvider";
 import { LocaleContextProvider } from "context/LocaleContext";
+import { ShoppingCartProvider } from "context/ShoppingCartProvider";
 import { SideDrawerProvider } from "context/SideDrawerProvider";
 import { SnackbarProvider } from "context/SnackbarProvider";
 import { ThemeProvider } from "context/ThemeProvider";
@@ -20,7 +21,9 @@ export const App = () => {
               <SnackbarProvider>
                 <SideDrawerProvider>
                   <CssBaseline />
-                  <AppRoutes />
+                  <ShoppingCartProvider>
+                    <AppRoutes />
+                  </ShoppingCartProvider>
                 </SideDrawerProvider>
               </SnackbarProvider>
             </ConfirmationDialogProvider>

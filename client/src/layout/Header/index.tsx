@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 import { DEFAULT_ROUTE } from "helpers/constants";
 import { useTranslate } from "hooks/useTranslate";
+import { ShoppingCart } from "layout/ShoppingCart";
 import { sxStyles } from "./styles";
 import { useNavItems } from "./useNavItems";
 
@@ -110,6 +111,7 @@ export const Header = () => {
           {renderMobileMenu()}
           {renderTitleAndLogo()}
           {renderDesktopMenu()}
+          <ShoppingCart />
         </Toolbar>
       </Container>
     </AppBar>
