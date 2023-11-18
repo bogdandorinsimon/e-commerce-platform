@@ -22,6 +22,8 @@ npm run build
 npm run dev
 ```
 
+By default, it should start at http://localhost:8080/
+
 ### Run the tests
 
 ```bash
