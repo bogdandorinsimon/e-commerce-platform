@@ -1,0 +1,12 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "error": "An error occurred!",
+    "hello_world": "Hello World!",
+    "page_not_found": "Page not found!"
+  },
+  "products": {
+    "title": "Products"
+  }
+}
