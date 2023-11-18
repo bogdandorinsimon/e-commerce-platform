@@ -21,6 +21,7 @@ type Props = {
 };
 
 export const ArticleCard = ({ article, onClick, handleAddToCart }: Props) => {
+  const [isHovered, setIsHovered] = useState(false);
   const classes = sxStyles();
 
   const handleMouseEnter = () => {
@@ -30,8 +31,6 @@ export const ArticleCard = ({ article, onClick, handleAddToCart }: Props) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-
-  const [isHovered, setIsHovered] = useState(false);
 
   const renderImageSection = () => {
     return (
@@ -64,7 +63,7 @@ export const ArticleCard = ({ article, onClick, handleAddToCart }: Props) => {
         <Typography gutterBottom variant="h5">
           <FormattedNumber
             value={article.price}
-            style="currency"
+            style={`currency`}
             currency="USD"
           />
         </Typography>
