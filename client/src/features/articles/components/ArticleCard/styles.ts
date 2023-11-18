@@ -1,13 +1,16 @@
 import { SxProps } from "@mui/material";
 
-const CARD_MAX_WIDTH = 345;
 const IMAGE_HEIGHT = 240;
 
 export const sxStyles = (): { [_: string]: SxProps } => ({
-  container: {
-    // maxWidth: CARD_MAX_WIDTH
-  },
-  image: {
-    height: IMAGE_HEIGHT
+  cardMedia: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    width: "100%",
+    objectFit: "contain",
+    height: IMAGE_HEIGHT,
+    pb: 4
   }
 });

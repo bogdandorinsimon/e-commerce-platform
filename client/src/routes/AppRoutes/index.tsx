@@ -8,6 +8,9 @@ import { AuthenticationRoute } from "routes/AuthenticationRoute";
 import { PrivateRoute } from "routes/PrivateRoute";
 
 const ArticlesPage = lazy(() => import("features/articles/ArticlesPage"));
+const ArticleDetailsPage = lazy(
+  () => import("features/articles/ArticleDetailsPage")
+);
 const ContactPage = lazy(() => import("features/contact/ContactPage"));
 const AboutPage = lazy(() => import("features/about/AboutPage"));
 const PageNotFound = lazy(() => import("routes/PageNotFound"));
@@ -25,6 +28,10 @@ export const AppRoutes = () => {
             {
               path: ROUTER_PATH.ARTICLES,
               element: <ArticlesPage />
+            },
+            {
+              path: ROUTER_PATH.ARTICLE_DETAILS,
+              element: <ArticleDetailsPage />
             },
             {
               path: ROUTER_PATH.CONTACT,

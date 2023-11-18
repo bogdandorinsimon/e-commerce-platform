@@ -1,14 +1,20 @@
-import { Grid, Typography } from "@mui/material";
-import { useTranslate } from "hooks/useTranslate";
+import { Grid } from "@mui/material";
+import { ROUTER_PATH } from "helpers/constants";
+import { useNavigate } from "react-router-dom";
 import { PageWrapper } from "layout/PageWrapper";
 import { ArticleCard } from "../components/ArticleCard";
 import { Article } from "../models";
 import { useArticles } from "../queries/useArticles";
 
 const ArticlesPage = () => {
-  const { translate } = useTranslate();
-
+  const navigate = useNavigate();
   const { articles, isLoading, isError, error } = useArticles();
+
+  const handleArticleClick = (article: Article) => {
+    navigate(ROUTER_PATH.ARTICLE_DETAILS.replace(":articleId", article.id));
+  };
+
+  const handleAddToCart = (article: Article) => {};
 
   return (
     <PageWrapper isLoading={isLoading} isError={isError} error={error?.message}>
@@ -19,7 +25,11 @@ const ArticlesPage = () => {
       >
         {articles?.map((article: Article) => (
           <Grid item xs={2} sm={4} md={4} lg={3} key={article.id}>
-            <ArticleCard article={article} />
+            <ArticleCard
+              article={article}
+              onClick={() => handleArticleClick(article)}
+              handleAddToCart={() => handleAddToCart(article)}
+            />
           </Grid>
         ))}
       </Grid>
