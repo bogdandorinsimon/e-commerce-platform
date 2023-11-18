@@ -8,7 +8,6 @@ import {
   IconButton,
   Menu,
   MenuItem,
-  SxProps,
   Toolbar,
   Typography
 } from "@mui/material";
