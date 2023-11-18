@@ -63,7 +63,7 @@ export const ArticleCard = ({ article, onClick, handleAddToCart }: Props) => {
         <Typography gutterBottom variant="h5">
           <FormattedNumber
             value={article.price}
-            style={`currency`}
+            style="currency"
             currency="USD"
           />
         </Typography>

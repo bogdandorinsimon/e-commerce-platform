@@ -11,8 +11,8 @@ import {
   Toolbar,
   Typography
 } from "@mui/material";
-import { DEFAULT_ROUTE } from "helpers/constants";
 import { useState } from "react";
+import { DEFAULT_ROUTE } from "helpers/constants";
 import { useTranslate } from "hooks/useTranslate";
 import { sxStyles } from "./styles";
 import { useNavItems } from "./useNavItems";

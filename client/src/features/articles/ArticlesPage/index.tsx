@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
-import { ROUTER_PATH } from "helpers/constants";
 import { useNavigate } from "react-router-dom";
+import { ROUTER_PATH } from "helpers/constants";
 import { PageWrapper } from "layout/PageWrapper";
 import { ArticleCard } from "../components/ArticleCard";
 import { Article } from "../models";
@@ -14,7 +14,9 @@ const ArticlesPage = () => {
     navigate(ROUTER_PATH.ARTICLE_DETAILS.replace(":articleId", article.id));
   };
 
-  const handleAddToCart = (article: Article) => {};
+  const handleAddToCart = (article: Article) => {
+    console.log("Added to cart: ", article);
+  };
 
   return (
     <PageWrapper isLoading={isLoading} isError={isError} error={error?.message}>

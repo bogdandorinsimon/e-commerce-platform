@@ -46,6 +46,16 @@
         "endOfLine": "auto"
       }
     ],
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "react/style-prop-object": [
+      "error",
+      {
+        "allow": [
+          "FormattedNumber",
+          "FormattedDateParts",
+          "FormattedRelativeTime"
+        ]
+      }
+    ]
   }
 }

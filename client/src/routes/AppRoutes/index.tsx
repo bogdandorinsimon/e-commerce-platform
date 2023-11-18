@@ -1,6 +1,6 @@
-import { ROUTER_PATH } from "helpers/constants";
 import { lazy } from "react";
 import { useLocation, useRoutes } from "react-router-dom";
+import { ROUTER_PATH } from "helpers/constants";
 import { AuthLayout } from "layout/AuthLayout";
 import { ErrorBoundary } from "layout/ErrorBoundary";
 import { MainLayout } from "layout/MainLayout";
