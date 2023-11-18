@@ -6,5 +6,14 @@
     "error": "An error occurred!",
     "hello_world": "Hello World!",
     "page_not_found": "Page not found!"
+  },
+  "articles": {
+    "title": "home"
+  },
+  "contact": {
+    "title": "Contact"
+  },
+  "about": {
+    "title": "About"
   }
 }

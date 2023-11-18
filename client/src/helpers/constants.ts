@@ -1,5 +1,7 @@
 export const ROUTER_PATH = {
   ARTICLES: "/",
+  CONTACT: "/contact",
+  ABOUT: "/about",
   NOT_FOUND: "*"
 };
 

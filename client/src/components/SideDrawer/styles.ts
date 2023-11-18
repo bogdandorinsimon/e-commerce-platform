@@ -1,8 +1,8 @@
-import { SxProps, Theme } from "@mui/material";
+import { SxProps } from "@mui/material";
 
 const DRAWER_WIDTH = 728;
 
-export const sxStyles = (): { [_: string]: SxProps<Theme> } => ({
+export const sxStyles = (): { [_: string]: SxProps } => ({
   drawerContainer: {
     width: "100vw",
     height: "100vh",

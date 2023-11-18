@@ -1,6 +1,12 @@
 import { AlertColor, ModalProps } from "@mui/material";
 import { ReactNode } from "react";
 
+export type HeaderNavItem = {
+  id: string;
+  title: string;
+  onClick: () => void;
+};
+
 export type SnackbarOptions = {
   type: AlertColor;
   title: string;

@@ -15,14 +15,13 @@ import { DEFAULT_ROUTE } from "helpers/constants";
 import { useState } from "react";
 import { useTranslate } from "hooks/useTranslate";
 import { sxStyles } from "./styles";
-
-const PAGES = ["Home", "Contact", "About"];
+import { useNavItems } from "./useNavItems";
 
 export const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-
   const { translate } = useTranslate();
   const classes = sxStyles();
+  const navItems = useNavItems();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -78,9 +77,9 @@ export const Header = () => {
           onClose={handleCloseNavMenu}
           sx={classes.mobile}
         >
-          {PAGES.map((page) => (
-            <MenuItem key={page} onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">{page}</Typography>
+          {navItems.map((navItem) => (
+            <MenuItem key={navItem.id} onClick={navItem.onClick}>
+              <Typography textAlign="center">{navItem.title}</Typography>
             </MenuItem>
           ))}
         </Menu>
@@ -91,13 +90,13 @@ export const Header = () => {
   const renderDesktopMenu = () => {
     return (
       <Box sx={classes.desktopMenuContainer}>
-        {PAGES.map((page) => (
+        {navItems.map((navItem) => (
           <Button
-            key={page}
-            onClick={handleCloseNavMenu}
+            key={navItem.id}
+            onClick={navItem.onClick}
             sx={{ my: 2, color: "white", display: "block" }}
           >
-            {page}
+            {navItem.title}
           </Button>
         ))}
       </Box>
