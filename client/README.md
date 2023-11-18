@@ -44,14 +44,6 @@ npm run format:fix
 
 The capability of auto-fixing depends on the severity of rule(s) violation.
 
-### JSON-server
-
-```bash
-npm run serve-json
-```
-
-By default, it will run on port 4000.
-
 ### Storybook
 
 ```bash
