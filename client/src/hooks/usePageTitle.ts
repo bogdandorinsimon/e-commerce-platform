@@ -7,8 +7,8 @@ export const usePageTitle = () => {
   const { pathname } = useLocation();
 
   switch (pathname) {
-    case ROUTER_PATH.PRODUCTS:
-      return translate("products.title", "Products");
+    case ROUTER_PATH.ARTICLES:
+      return translate("articles.title", "Articles");
 
     default:
       return "";

@@ -1,7 +1,7 @@
-export const BASE_URL = "http://localhost:4000";
+export const BASE_URL = "http://localhost:3000";
 
-export const PRODUCT_KEYS = {
-  all: ["products"],
-  lists: () => [...PRODUCT_KEYS.all, "lists"],
-  product: (id: string) => [...PRODUCT_KEYS.all, id]
+export const ARTICLE_KEYS = {
+  all: ["articles"],
+  lists: () => [...ARTICLE_KEYS.all, "lists"],
+  article: (id: string) => [...ARTICLE_KEYS.all, id]
 };

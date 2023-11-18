@@ -7,7 +7,7 @@ import { MainLayout } from "layout/MainLayout";
 import { AuthenticationRoute } from "routes/AuthenticationRoute";
 import { PrivateRoute } from "routes/PrivateRoute";
 
-const ProductsPage = lazy(() => import("features/products/ProductsPage"));
+const ArticlesPage = lazy(() => import("features/articles/ArticlesPage"));
 const PageNotFound = lazy(() => import("routes/PageNotFound"));
 
 export const AppRoutes = () => {
@@ -21,8 +21,8 @@ export const AppRoutes = () => {
           element: <MainLayout />,
           children: [
             {
-              path: ROUTER_PATH.PRODUCTS,
-              element: <ProductsPage />
+              path: ROUTER_PATH.ARTICLES,
+              element: <ArticlesPage />
             }
           ]
         }
