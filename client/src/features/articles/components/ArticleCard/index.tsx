@@ -1,8 +1,4 @@
-import {
-  ButtonProps,
-  CardActionArea,
-  CardActionAreaProps
-} from "@mui/material";
+import { Box, CardActionArea } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -12,15 +8,22 @@ import { useState } from "react";
 import { FormattedNumber } from "react-intl";
 import { Article } from "features/articles/models";
 import { AddToCartButton } from "../AddToCartButton";
+import { FavoriteStatus } from "../FavoriteStatus";
 import { sxStyles } from "./styles";
 
 type Props = {
   article: Article;
-  onClick: CardActionAreaProps["onClick"];
-  handleAddToCart: ButtonProps["onClick"];
+  onClick: () => void;
+  handleAddToCart: () => void;
+  handleFavoriteClick: () => void;
 };
 
-export const ArticleCard = ({ article, onClick, handleAddToCart }: Props) => {
+export const ArticleCard = ({
+  article,
+  onClick,
+  handleAddToCart,
+  handleFavoriteClick
+}: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   const classes = sxStyles();
 
@@ -32,6 +35,24 @@ export const ArticleCard = ({ article, onClick, handleAddToCart }: Props) => {
     setIsHovered(false);
   };
 
+  const renderHoveredItems = () => {
+    if (!isHovered) {
+      return null;
+    }
+
+    return (
+      <>
+        <Box sx={classes.favoriteContainer}>
+          <FavoriteStatus
+            isFavorite={article.isFavorite}
+            onClick={handleFavoriteClick}
+          />
+        </Box>
+        <AddToCartButton onClick={handleAddToCart} />
+      </>
+    );
+  };
+
   const renderImageSection = () => {
     return (
       <CardMedia
@@ -39,7 +60,7 @@ export const ArticleCard = ({ article, onClick, handleAddToCart }: Props) => {
         image={article.imageUrl}
         title={article.title}
       >
-        {isHovered && <AddToCartButton onClick={handleAddToCart} />}
+        {renderHoveredItems()}
       </CardMedia>
     );
   };

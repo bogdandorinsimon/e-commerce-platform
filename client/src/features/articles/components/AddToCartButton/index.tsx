@@ -1,24 +1,26 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Button, ButtonProps, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useTranslate } from "hooks/useTranslate";
 import { sxStyles } from "./styles";
 
 type Props = {
-  onClick: ButtonProps["onClick"];
+  onClick: () => void;
 };
 
 export const AddToCartButton = ({ onClick }: Props) => {
   const { translate } = useTranslate();
   const classes = sxStyles();
 
-  const handleClick = (event: any) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     if (!onClick) {
       return;
     }
 
     event.stopPropagation();
 
-    onClick(event);
+    onClick();
   };
 
   return (

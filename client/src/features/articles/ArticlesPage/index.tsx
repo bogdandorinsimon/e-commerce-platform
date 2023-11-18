@@ -18,6 +18,10 @@ const ArticlesPage = () => {
     console.log("Added to cart: ", article);
   };
 
+  const handleFavoriteClick = (article: Article) => {
+    console.log("Favorite clicked: ", article);
+  };
+
   return (
     <PageWrapper isLoading={isLoading} isError={isError} error={error?.message}>
       <Grid
@@ -31,6 +35,7 @@ const ArticlesPage = () => {
               article={article}
               onClick={() => handleArticleClick(article)}
               handleAddToCart={() => handleAddToCart(article)}
+              handleFavoriteClick={() => handleFavoriteClick(article)}
             />
           </Grid>
         ))}

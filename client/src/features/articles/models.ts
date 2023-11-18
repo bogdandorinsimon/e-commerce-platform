@@ -3,4 +3,5 @@ export type Article = {
   price: number;
   title: string;
   imageUrl: string;
+  isFavorite: boolean;
 };
