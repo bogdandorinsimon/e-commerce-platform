@@ -5,15 +5,18 @@ import {
   useMemo,
   useState
 } from "react";
-import { Article } from "features/articles/models";
-import { CartItem } from "models/cart";
+import { CART_ITEMS_LOCAL_STORAGE_KEY } from "helpers/constants";
+import { useLocalStorage } from "hooks/useLocalStorage";
+import { Article, CartItem } from "models/business";
 
 type ShoppingCartSignature = {
+  cartItems: CartItem[];
   cartQuantity: number;
-  getItemQuantity: (id: Article["id"]) => number;
-  increaseItemQuantity: (id: Article["id"]) => void;
-  decreaseItemQuantity: (id: Article["id"]) => void;
-  removeItem: (id: Article["id"]) => void;
+  getItemQuantity: (article: Article) => number;
+  increaseItemQuantity: (article: Article) => void;
+  decreaseItemQuantity: (article: Article) => void;
+  removeItem: (article: Article) => void;
+  clearCart: () => void;
 };
 
 export const ShoppingCartContext =
@@ -24,24 +27,33 @@ type Props = {
 };
 
 export const ShoppingCartProvider = ({ children }: Props): JSX.Element => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    CART_ITEMS_LOCAL_STORAGE_KEY,
+    []
+  );
 
+  const cartQuantity = useMemo(
+    () => cartItems.reduce((quantity, item) => quantity + item.quantity, 0),
+    [cartItems]
+  );
   const getItemQuantity = useCallback(
-    (id: Article["id"]) => {
-      return cartItems.find((item) => item.id === id)?.quantity ?? 0;
+    (article: Article) => {
+      return cartItems.find((item) => item.id === article.id)?.quantity ?? 0;
     },
     [cartItems]
   );
 
   const increaseItemQuantity = useCallback(
-    (id: Article["id"]) => {
-      const existingItem = cartItems.find((item) => item.id === id);
+    (article: Article) => {
+      const existingItem = cartItems.find((item) => item.id === article.id);
 
       if (!existingItem) {
-        setCartItems([...cartItems, { id, quantity: 1 }]);
+        setCartItems([...cartItems, { ...article, quantity: 1 }]);
       } else {
         const newCartItems = cartItems.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === article.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
         );
 
         setCartItems(newCartItems);
@@ -51,21 +63,23 @@ export const ShoppingCartProvider = ({ children }: Props): JSX.Element => {
   );
 
   const removeItem = useCallback(
-    (id: Article["id"]) => {
-      setCartItems(cartItems.filter((item) => item.id !== id));
+    (article: Article) => {
+      setCartItems(cartItems.filter((item) => item.id !== article.id));
     },
     [cartItems]
   );
 
   const decreaseItemQuantity = useCallback(
-    (id: Article["id"]) => {
-      const existingItem = cartItems.find((item) => item.id === id);
+    (article: Article) => {
+      const existingItem = cartItems.find((item) => item.id === article.id);
 
       if (existingItem?.quantity === 1) {
-        removeItem(id);
+        removeItem(article);
       } else {
         const newCartItems = cartItems.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+          item.id === article.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
         );
 
         setCartItems(newCartItems);
@@ -74,13 +88,19 @@ export const ShoppingCartProvider = ({ children }: Props): JSX.Element => {
     [cartItems]
   );
 
+  const clearCart = useCallback(() => {
+    setCartItems([]);
+  }, []);
+
   const contextValue = useMemo(() => {
     return {
-      cartQuantity: cartItems.length,
+      cartQuantity,
+      cartItems,
       getItemQuantity,
       increaseItemQuantity,
       decreaseItemQuantity,
-      removeItem
+      removeItem,
+      clearCart
     };
   }, [cartItems]);
 

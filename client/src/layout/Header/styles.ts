@@ -16,6 +16,9 @@ export const sxStyles = (): { [_: string]: SxProps } => ({
     flexGrow: 1,
     display: { xs: "none", md: "flex" }
   },
+  placeholder: {
+    flexGrow: 1
+  },
   navItem: {
     py: 2
   }

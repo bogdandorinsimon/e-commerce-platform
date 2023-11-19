@@ -5,15 +5,25 @@
     "delete": "Delete",
     "error": "An error occurred!",
     "hello_world": "Hello World!",
-    "page_not_found": "Page not found!"
+    "page_not_found": "Page not found!",
+    "shopping_cart": "Shopping cart"
   },
   "articles": {
     "add_to_cart": "Add to cart",
+    "item_added_to_cart": "Item added to cart successfully!",
     "title": "home",
-    "updated_successfully": "Item updated updated successfully!"
+    "updated_successfully": "Item updated successfully!"
   },
   "article_details": {
     "message": "This is the details page for article: {title}"
+  },
+  "cart": {
+    "confirmation_description": "Are you sure you want to remove {title}?",
+    "confirmation_remove": "Remove",
+    "confirmation_title": "Remove {title}",
+    "price": "Price: {element}",
+    "submit": "Submit",
+    "total": "Total: {element}"
   },
   "contact": {
     "title": "Contact"

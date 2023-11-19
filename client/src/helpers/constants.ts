@@ -6,6 +6,8 @@ export const ROUTER_PATH = {
   NOT_FOUND: "*"
 };
 
+export const CART_ITEMS_LOCAL_STORAGE_KEY = "shopping-cart-items";
+
 export const BACK_ROUTE = -1;
 export const DEFAULT_ROUTE = ROUTER_PATH.ARTICLES;
 

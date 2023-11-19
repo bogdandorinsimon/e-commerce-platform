@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { FormattedNumber } from "react-intl";
-import { Article } from "features/articles/models";
+import { Article } from "models/business";
 import { AddToCartButton } from "../AddToCartButton";
 import { FavoriteStatus } from "../FavoriteStatus";
 import { sxStyles } from "./styles";

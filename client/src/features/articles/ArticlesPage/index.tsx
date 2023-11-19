@@ -1,25 +1,34 @@
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useShoppingCart } from "context/ShoppingCartProvider/useShoppingCart";
+import { useSnackbar } from "context/SnackbarProvider/useSnackbar";
 import { ROUTER_PATH } from "helpers/constants";
+import { useTranslate } from "hooks/useTranslate";
 import { PageWrapper } from "layout/PageWrapper";
+import { Article } from "models/business";
 import { ArticleCard } from "../components/ArticleCard";
-import { Article } from "../models";
 import { useUpdateArticle } from "../mutations/useUpdateArticle";
 import { useArticles } from "../queries/useArticles";
 
 const ArticlesPage = () => {
+  const { translate } = useTranslate();
   const navigate = useNavigate();
   const { articles, isLoading, isError, error } = useArticles();
   const { increaseItemQuantity } = useShoppingCart();
   const { updateArticle } = useUpdateArticle();
+  const { openSnackbar } = useSnackbar();
 
   const handleArticleClick = (article: Article) => {
     navigate(ROUTER_PATH.ARTICLE_DETAILS.replace(":articleId", article.id));
   };
 
   const handleAddToCart = (article: Article) => {
-    increaseItemQuantity(article.id);
+    increaseItemQuantity(article);
+
+    openSnackbar({
+      type: "success",
+      title: translate("item_added_to_cart", "Item added to cart successfully!")
+    });
   };
 
   const handleFavoriteClick = (article: Article) => {

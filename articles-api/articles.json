@@ -32,7 +32,7 @@
     "price": 150,
     "title": "Letter Sport Shoes",
     "imageUrl": "https://www.miret.co/cdn/shop/products/208-013-Leshy-Pine_1.jpg?v=1631688504&width=1540",
-    "isFavorite": true
+    "isFavorite": false
   },
   {
     "id": "1d475491-02ee-4a3b-a67c-d61ab2801c6e",
@@ -46,7 +46,7 @@
     "price": 35,
     "title": "Olive Youth hoodie",
     "imageUrl": "https://horsefeathers.b-cdn.net/data/tmp/0/7/97087_0.jpg?1674151865_1",
-    "isFavorite": false
+    "isFavorite": true
   },
   {
     "id": "5f96be1e-14e7-4c09-ad0c-6020d8aa80ae",

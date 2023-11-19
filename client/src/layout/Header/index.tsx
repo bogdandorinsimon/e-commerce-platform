@@ -111,6 +111,7 @@ export const Header = () => {
           {renderMobileMenu()}
           {renderTitleAndLogo()}
           {renderDesktopMenu()}
+          <Box sx={classes.placeholder} />
           <ShoppingCart />
         </Toolbar>
       </Container>

@@ -1,5 +1,5 @@
 import { Http } from "api/http";
-import { Article } from "./models";
+import { Article } from "models/business";
 
 const ARTICLE_SERVICE_ROUTES = {
   articles: () => "articles",

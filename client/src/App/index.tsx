@@ -17,16 +17,16 @@ export const App = () => {
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider>
-            <ConfirmationDialogProvider>
-              <SnackbarProvider>
-                <SideDrawerProvider>
-                  <CssBaseline />
-                  <ShoppingCartProvider>
+            <ShoppingCartProvider>
+              <ConfirmationDialogProvider>
+                <SnackbarProvider>
+                  <SideDrawerProvider>
+                    <CssBaseline />
                     <AppRoutes />
-                  </ShoppingCartProvider>
-                </SideDrawerProvider>
-              </SnackbarProvider>
-            </ConfirmationDialogProvider>
+                  </SideDrawerProvider>
+                </SnackbarProvider>
+              </ConfirmationDialogProvider>
+            </ShoppingCartProvider>
           </ThemeProvider>
         </QueryClientProvider>
       </BrowserRouter>

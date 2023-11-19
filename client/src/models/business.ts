@@ -5,3 +5,7 @@ export type Article = {
   imageUrl: string;
   isFavorite: boolean;
 };
+
+export type CartItem = Article & {
+  quantity: number;
+};

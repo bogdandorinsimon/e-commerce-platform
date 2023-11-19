@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { ARTICLE_KEYS } from "api/constants";
 import { useSnackbar } from "context/SnackbarProvider/useSnackbar";
 import { useTranslate } from "hooks/useTranslate";
-import { Article } from "../models";
+import { Article } from "models/business";
 import { updateArticle } from "../services";
 
 export const useUpdateArticle = () => {

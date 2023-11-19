@@ -18,11 +18,13 @@ export const typography: TypographyOptions = {
     fontWeight: 500
   },
   h3: {
-    fontSize: 24,
-
+    fontSize: 20,
     fontWeight: 500
   },
-  h4: undefined,
+  h4: {
+    fontSize: 18,
+    fontWeight: 500
+  },
   h5: undefined,
   h6: undefined,
   subtitle: {
