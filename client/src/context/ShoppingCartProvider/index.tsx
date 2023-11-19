@@ -1,10 +1,4 @@
-import {
-  ReactNode,
-  createContext,
-  useCallback,
-  useMemo,
-  useState
-} from "react";
+import { ReactNode, createContext, useCallback, useMemo } from "react";
 import { CART_ITEMS_LOCAL_STORAGE_KEY } from "helpers/constants";
 import { useLocalStorage } from "hooks/useLocalStorage";
 import { Article, CartItem } from "models/business";

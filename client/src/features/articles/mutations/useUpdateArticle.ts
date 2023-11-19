@@ -16,7 +16,7 @@ export const useUpdateArticle = () => {
     AxiosError,
     Article
   >(updateArticle, {
-    onSuccess: (response) => {
+    onSuccess: () => {
       queryClient.invalidateQueries(ARTICLE_KEYS.all);
 
       openSnackbar({
