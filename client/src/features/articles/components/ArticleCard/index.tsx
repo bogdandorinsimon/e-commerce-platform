@@ -1,3 +1,4 @@
+import ImageIcon from "@mui/icons-material/Image";
 import { Box, CardActionArea } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -6,6 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { FormattedNumber } from "react-intl";
+import ImagePlaceholder from "assets/icons/png/ImagePlaceholder.png";
 import { Article } from "models/business";
 import { AddToCartButton } from "../AddToCartButton";
 import { FavoriteStatus } from "../FavoriteStatus";
@@ -57,7 +59,7 @@ export const ArticleCard = ({
     return (
       <CardMedia
         sx={classes.cardMedia}
-        image={article.imageUrl}
+        image={article.imageUrl ?? ImagePlaceholder}
         title={article.title}
       >
         {renderHoveredItems()}
