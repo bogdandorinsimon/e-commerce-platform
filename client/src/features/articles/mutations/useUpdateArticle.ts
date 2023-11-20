@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 import { useMutation, useQueryClient } from "react-query";
-import { ARTICLE_KEYS } from "api/constants";
 import { useSnackbar } from "context/SnackbarProvider/useSnackbar";
+import { ARTICLE_KEYS } from "helpers/constants";
 import { useTranslate } from "hooks/useTranslate";
 import { Article } from "models/business";
 import { updateArticle } from "../services";

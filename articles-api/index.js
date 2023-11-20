@@ -43,6 +43,8 @@ app.post("/articles", (req, res) => {
     typeof price !== "number" ||
     !title ||
     typeof title !== "string" ||
+    !description ||
+    typeof description !== "string" ||
     !imageUrl ||
     typeof imageUrl !== "string"
   ) {
@@ -50,7 +52,14 @@ app.post("/articles", (req, res) => {
   }
 
   const id = uuid.v4();
-  const newArticle = { id, price, title, imageUrl };
+  const newArticle = {
+    id,
+    price,
+    title,
+    description,
+    imageUrl,
+    isFavorite: false,
+  };
   const newArticles = [...articles, newArticle];
 
   try {
@@ -79,18 +88,28 @@ app.put("/articles/:articleId", (req, res) => {
     typeof price !== "number" ||
     !title ||
     typeof title !== "string" ||
-    typeof isFavorite !== boolean
+    typeof isFavorite !== "boolean" ||
+    !description ||
+    typeof description !== "string"
   ) {
     return res.status(400).send("Missing or invalid data.");
   }
 
-  const newArticle = { ...articles[index], price, imageUrl, title, isFavorite };
+  const newArticle = {
+    ...articles[index],
+    price,
+    imageUrl,
+    title,
+    description,
+    isFavorite,
+  };
   const newArticles = [...articles];
   newArticles.splice(index, 1, newArticle);
 
   try {
     updateArticlesFile(newArticles);
   } catch (e) {
+    console.log("update failed!", e);
     return res.status(500).send("A server error occured.");
   }
 

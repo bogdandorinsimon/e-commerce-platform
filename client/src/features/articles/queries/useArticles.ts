@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useQuery } from "react-query";
-import { ARTICLE_KEYS } from "api/constants";
+import { ARTICLE_KEYS } from "helpers/constants";
 import { Article } from "models/business";
 import { getArticles } from "../services";
 

@@ -19,7 +19,7 @@ export const ShoppingCart = () => {
 
   return (
     <IconButton onClick={handleShoppingCartClick}>
-      <Badge badgeContent={cartQuantity} color="error">
+      <Badge badgeContent={cartQuantity} color="error" id="cart-badge">
         <ShoppingCartIcon />
       </Badge>
     </IconButton>

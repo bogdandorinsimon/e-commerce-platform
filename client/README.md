@@ -53,8 +53,3 @@ npm run storybook
 ```
 
 The Storybook interface is available at http://localhost:6006/.
-
-## Guidelines
-
-- [Commit message guideline](./COMMIT_GUIDELINE.md): committing a piece of work will fail if the commit message does not respect the [conventional commits standards](https://www.conventionalcommits.org/en/v1.0.0/);
-- [Coding guideline](./CODE_GUIDELINE.md);

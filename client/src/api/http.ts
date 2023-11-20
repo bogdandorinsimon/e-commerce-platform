@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
-import { BASE_URL } from "./constants";
+
+export const BASE_URL = "http://localhost:3000";
 
 export type Api = {
   base: AxiosInstance;

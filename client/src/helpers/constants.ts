@@ -6,10 +6,11 @@ export const ROUTER_PATH = {
   NOT_FOUND: "*"
 };
 
+export const ARTICLE_KEYS = {
+  all: ["articles"],
+  lists: () => [...ARTICLE_KEYS.all, "lists"],
+  article: (id: string) => [...ARTICLE_KEYS.all, id]
+};
+
 export const CART_ITEMS_LOCAL_STORAGE_KEY = "shopping-cart-items";
-
-export const BACK_ROUTE = -1;
 export const DEFAULT_ROUTE = ROUTER_PATH.ARTICLES;
-
-export const NAME_AND_EMAIL_MAX_LENGTH = 50;
-export const NAME_REGEX = /^[A-Za-z][a-zA-Z'-]*$/;

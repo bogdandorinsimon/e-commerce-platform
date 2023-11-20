@@ -1,4 +1,3 @@
-import ImageIcon from "@mui/icons-material/Image";
 import { Box, CardActionArea } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -74,7 +73,7 @@ export const ArticleCard = ({
           {article.title}
         </Typography>
         <Typography variant="body" color="text.secondary" sx={classes.text}>
-          {article.title}
+          {article.description}
         </Typography>
       </CardContent>
     );

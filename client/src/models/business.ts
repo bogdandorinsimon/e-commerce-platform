@@ -3,6 +3,7 @@ export type Article = {
   price: number;
   title: string;
   imageUrl: string;
+  description: string;
   isFavorite: boolean;
 };
 

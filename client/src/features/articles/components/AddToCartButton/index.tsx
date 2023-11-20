@@ -24,7 +24,7 @@ export const AddToCartButton = ({ onClick }: Props) => {
   };
 
   return (
-    <Button variant="contained" onClick={handleClick}>
+    <Button variant="contained" onClick={handleClick} id="add-to-cart-button">
       <ShoppingCartIcon sx={classes.icon} />
       <Typography variant="caption">
         {translate("articles.add_to_cart", "Add to cart")}
