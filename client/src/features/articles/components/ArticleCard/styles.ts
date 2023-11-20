@@ -3,6 +3,13 @@ import { SxProps } from "@mui/material";
 const IMAGE_HEIGHT = 240;
 
 export const sxStyles = (): { [_: string]: SxProps } => ({
+  text: {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    WebkitLineClamp: "1",
+    WebkitBoxOrient: "vertical"
+  },
   cardMedia: {
     display: "flex",
     flexDirection: "column",
