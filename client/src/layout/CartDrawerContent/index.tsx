@@ -140,6 +140,14 @@ export const CartDrawerContent = () => {
     </Typography>
   );
 
+  if (cartItems.length === 0) {
+    return (
+      <Typography variant="h4">
+        {translate("cart.no_items", "No items added yet...")}
+      </Typography>
+    );
+  }
+
   return (
     <Stack>
       {cartItems.map((item) => renderCartItem(item))}

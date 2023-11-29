@@ -21,6 +21,7 @@
     "confirmation_description": "Are you sure you want to remove {title}?",
     "confirmation_remove": "Remove",
     "confirmation_title": "Remove {title}",
+    "no_items": "No items added yet...",
     "price": "Price: {element}",
     "submit": "Submit",
     "total": "Total: {element}"
