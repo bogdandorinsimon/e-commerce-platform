@@ -79,7 +79,7 @@ app.put("/articles/:articleId", (req, res) => {
     return res.status(404).send(`ARTICLE with ID ${articleId} not found.`);
   }
 
-  const { price, title, imageUrl, isFavorite } = req.body;
+  const { price, title, imageUrl, description, isFavorite } = req.body;
 
   if (
     !imageUrl ||
