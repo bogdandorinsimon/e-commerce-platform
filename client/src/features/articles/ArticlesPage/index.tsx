@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useShoppingCart } from "context/ShoppingCartProvider/useShoppingCart";
+import { increaseItemQuantity } from "store/slice";
 import { useSnackbar } from "context/SnackbarProvider/useSnackbar";
 import { ROUTER_PATH } from "helpers/constants";
 import { useTranslate } from "hooks/useTranslate";
@@ -14,7 +15,7 @@ const ArticlesPage = () => {
   const { translate } = useTranslate();
   const navigate = useNavigate();
   const { articles, isLoading, isError, error } = useArticles();
-  const { increaseItemQuantity } = useShoppingCart();
+  const dispatch = useDispatch();
   const { updateArticle } = useUpdateArticle();
   const { openSnackbar } = useSnackbar();
 
@@ -23,7 +24,7 @@ const ArticlesPage = () => {
   };
 
   const handleAddToCart = (article: Article) => {
-    increaseItemQuantity(article);
+    dispatch(increaseItemQuantity(article));
 
     openSnackbar({
       type: "success",

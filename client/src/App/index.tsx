@@ -1,6 +1,8 @@
 import { CssBaseline } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { store } from "store";
 import { ConfirmationDialogProvider } from "context/ConfirmationDialogProvider";
 import { LocaleContextProvider } from "context/LocaleContext";
 import { ShoppingCartProvider } from "context/ShoppingCartProvider";
@@ -17,7 +19,7 @@ export const App = () => {
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider>
-            <ShoppingCartProvider>
+            <Provider store={store}>
               <ConfirmationDialogProvider>
                 <SnackbarProvider>
                   <SideDrawerProvider>
@@ -26,7 +28,7 @@ export const App = () => {
                   </SideDrawerProvider>
                 </SnackbarProvider>
               </ConfirmationDialogProvider>
-            </ShoppingCartProvider>
+            </Provider>
           </ThemeProvider>
         </QueryClientProvider>
       </BrowserRouter>

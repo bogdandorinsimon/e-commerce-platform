@@ -10,8 +10,15 @@ import {
   Typography
 } from "@mui/material";
 import { FormattedNumber } from "react-intl";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartItems } from "store/selectors";
+import {
+  decreaseItemQuantity,
+  increaseItemQuantity,
+  removeItem,
+  resetAppState
+} from "store/slice";
 import { useConfirmationDialog } from "context/ConfirmationDialogProvider/useConfirmationDialog";
-import { useShoppingCart } from "context/ShoppingCartProvider/useShoppingCart";
 import { useSideDrawer } from "context/SideDrawerProvider/useSideDrawer";
 import { getCartItemPrice, getCartTotalPrice } from "helpers/helpers";
 import { useTranslate } from "hooks/useTranslate";
@@ -19,30 +26,25 @@ import { CartItem } from "models/business";
 import { sxStyles } from "./styles";
 
 export const CartDrawerContent = () => {
-  const {
-    cartItems,
-    increaseItemQuantity,
-    decreaseItemQuantity,
-    removeItem,
-    clearCart
-  } = useShoppingCart();
   const { closeSideDrawer } = useSideDrawer();
   const { getConfirmation } = useConfirmationDialog();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(getCartItems);
   const { translate } = useTranslate();
   const classes = sxStyles();
 
   const handleIncrementClick = (item: CartItem) => {
-    increaseItemQuantity(item);
+    dispatch(increaseItemQuantity(item));
   };
 
   const handleDecrementClick = (item: CartItem) => {
-    decreaseItemQuantity(item);
+    dispatch(decreaseItemQuantity(item));
   };
 
   const handleSubmitClick = () => {
     closeSideDrawer();
 
-    clearCart();
+    dispatch(resetAppState());
   };
 
   const handleRemoveClick = async (item: CartItem) => {
@@ -61,7 +63,7 @@ export const CartDrawerContent = () => {
     });
 
     if (shouldRemove) {
-      removeItem(item);
+      dispatch(removeItem(item));
     }
   };
 
@@ -150,7 +152,7 @@ export const CartDrawerContent = () => {
 
   return (
     <Stack>
-      {cartItems.map((item) => renderCartItem(item))}
+      {cartItems.map((item: CartItem) => renderCartItem(item))}
       {renderTotal()}
       <Button
         variant="contained"

@@ -30,6 +30,7 @@ export const ShoppingCartProvider = ({ children }: Props): JSX.Element => {
     () => cartItems.reduce((quantity, item) => quantity + item.quantity, 0),
     [cartItems]
   );
+
   const getItemQuantity = useCallback(
     (article: Article) => {
       return cartItems.find((item) => item.id === article.id)?.quantity ?? 0;
